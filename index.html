@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Polavarapu Satya Sai Ganesh | Full-Stack Developer</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Polavarapu Satya Sai Ganesh - Full-Stack Web Developer and ECE student specializing in Python, HTML, CSS, Bootstrap, and SQL." />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --bg: #0b1120;
+      --bg-alt: #020617;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --card: #020617;
+      --border: #1f2937;
+      --accent: #22c55e;
+    }
+
+    * {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 45%, #020617 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* Navbar */
+    .navbar {
+      backdrop-filter: blur(16px);
+      background-color: rgba(15, 23, 42, 0.85);
+      border-bottom: 1px solid rgba(55, 65, 81, 0.7);
+    }
+    .nav-link {
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--text);
+    }
+
+    /* Hero */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.3rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.15);
+      border: 1px solid rgba(37, 99, 235, 0.4);
+      color: var(--accent);
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+    .hero-title {
+      font-size: clamp(2.4rem, 4vw, 3.2rem);
+      font-weight: 700;
+    }
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: var(--muted);
+    }
+    .hero-highlight {
+      background: linear-gradient(120deg, #38bdf8, #22c55e, #eab308);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero-buttons .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border: none;
+      box-shadow: 0 18px 45px rgba(37, 99, 235, 0.45);
+    }
+    .hero-buttons .btn-outline-light {
+      border-color: rgba(148, 163, 184, 0.7);
+      color: #e5e7eb;
+    }
+    .hero-buttons .btn-outline-light:hover {
+      background-color: rgba(148, 163, 184, 0.1);
+    }
+    .hero-taglist span {
+      font-size: 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 0.25rem 0.8rem;
+      color: var(--muted);
+    }
+
+    /* Sections */
+    section {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+    .section-subtitle {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* Cards */
+    .glass-card {
+      background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.12), rgba(15, 23, 42, 0.95));
+      border-radius: 1.3rem;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      padding: 1.5rem;
+      box-shadow: 0 22px 55px rgba(15, 23, 42, 0.9);
+    }
+    .skill-pill {
+      font-size: 0.82rem;
+      border-radius: 999px;
+      padding: 0.25rem 0.8rem;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: #e5e7eb;
+    }
+
+    /* Projects */
+    .project-card {
+      background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.16), rgba(15, 23, 42, 0.96));
+      border-radius: 1.2rem;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      padding: 1.3rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.9);
+    }
+    .project-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .project-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .project-links a {
+      font-size: 0.85rem;
+    }
+
+    /* Timeline */
+    .timeline-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.28);
+    }
+    .timeline-line {
+      position: absolute;
+      left: 5px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, rgba(148, 163, 184, 0.6), transparent);
+    }
+
+    /* Contact */
+    .contact-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    .contact-link:hover {
+      color: var(--text);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(55, 65, 81, 0.6);
+      color: var(--muted);
+      font-size: 0.8rem;
+      padding: 1.5rem 0;
+    }
+
+    @media (max-width: 767.98px) {
+      #hero {
+        text-align: center;
+      }
+      .hero-buttons {
+        justify-content: center;
+      }
+      .hero-taglist {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-semibold text-white" href="#hero">
+        PSSG<span class="text-primary">.</span>
+      </a>
+      <button
+        class="navbar-toggler border-0"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon">
+          <span class="text-white">☰</span>
+        </span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+          <li class="nav-item"><a class="nav-link active" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item mt-2 mt-lg-0">
+            <a
+              class="btn btn-sm btn-primary px-3"
+              href="#projects">
+              View Work
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <div class="hero-badge">
+            <span style="font-size: 0.9rem;">●</span>
+            Available for internships & projects
+          </div>
+          <h1 class="hero-title mb-3">
+            Hi, I am <span class="hero-highlight">Polavarapu Satya Sai Ganesh</span>.
+          </h1>
+          <p class="hero-subtitle mb-4">
+            Detail‑oriented full‑stack web developer and Electronics & Communication
+            Engineering student from Visakhapatnam, building responsive, user‑centric
+            web applications with Python, HTML, CSS, Bootstrap and SQL.
+          </p>
+
+          <div class="hero-buttons d-flex flex-wrap gap-3 mb-4">
+            <a href="#projects" class="btn btn-primary btn-lg">
+              View Projects
+            </a>
+            <a href="#contact" class="btn btn-outline-light btn-lg">
+              Contact Me
+            </a>
+          </div>
+
+          <div class="hero-taglist d-flex flex-wrap gap-2 mb-3">
+            <span>Full‑Stack Web Development</span>
+            <span>Python · HTML · CSS · Bootstrap</span>
+            <span>SQL · REST APIs</span>
+          </div>
+
+          <p class="project-meta mb-0">
+            Passionate about solving real‑world problems through code, with deep
+            interest in space technology, AI/ML and continuous learning.
+          </p>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="glass-card">
+            <h2 class="h5 mb-3">Snapshot</h2>
+            <p class="mb-2">
+              Electronics & Communication Engineering student at
+              Dr. Lankapalli Bullayya College (Andhra University), actively building
+              full‑stack projects and exploring modern web technologies.
+            </p>
+            <p class="mb-3" style="font-size: 0.92rem; color: var(--muted);">
+              Visakhapatnam, India · Bilingual in English & Telugu.
+            </p>
+
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <span class="skill-pill">Responsive Web Design</span>
+              <span class="skill-pill">Full‑Stack Development</span>
+              <span class="skill-pill">Database Design</span>
+              <span class="skill-pill">Problem Solving</span>
+            </div>
+
+            <div style="font-size: 0.85rem; color: var(--muted);">
+              <div class="mb-1">
+                <span style="color: #e5e7eb;">Email:</span>
+                <a class="contact-link" href="mailto:p.satyasaiganesh@gmail.com">
+                  p.satyasaiganesh@gmail.com
+                </a>
+              </div>
+              <div class="mb-1">
+                <span style="color: #e5e7eb;">Phone:</span>
+                <a class="contact-link" href="tel:+919014842016">
+                  +91 90148 42016
+                </a>
+              </div>
+              <div>
+                <span style="color: #e5e7eb;">Location:</span>
+                Visakhapatnam, Andhra Pradesh, India
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6">
+          <h2 class="section-title mb-2">About</h2>
+          <p class="section-subtitle mb-3">
+            A developer who combines engineering fundamentals with modern web
+            technologies to craft reliable digital experiences.
+          </p>
+          <p class="mb-3">
+            As a third‑year Electronics & Communication Engineering student,
+            the focus is on full‑stack web development using Python, modern frontend
+            tools and relational databases. Projects emphasize clean architecture,
+            responsive layouts and user‑first design.
+          </p>
+          <p class="mb-3">
+            Beyond building interfaces, there is a strong interest in space technology,
+            AI/ML, and research‑driven innovation. Collaboration, communication and
+            attention to detail are core strengths in both academic and technical work.
+          </p>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="glass-card">
+            <h3 class="h6 text-uppercase text-muted mb-3">Highlights</h3>
+            <ul class="mb-3" style="font-size: 0.9rem;">
+              <li>Hands‑on experience with Python web development and RESTful APIs.</li>
+              <li>Strong foundation in HTML, CSS, Bootstrap and responsive design.</li>
+              <li>Comfortable with SQL, data querying and relational database concepts.</li>
+              <li>Certified in full‑stack Python development (NxtWave, AICTE approved).</li>
+              <li>Active learner exploring AI/ML and industry best practices.</li>
+            </ul>
+            <p class="project-meta mb-0">
+              Goal: Contribute to product‑focused teams, build scalable web applications,
+              and grow into a strong full‑stack and AI‑driven developer.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="container">
+      <div class="row mb-4">
+        <div class="col-md-8">
+          <h2 class="section-title mb-2">Skills</h2>
+          <p class="section-subtitle">
+            A stack centered on Python, modern web technologies and solid database fundamentals.
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="glass-card h-100">
+            <h3 class="h6 mb-2">Frontend</h3>
+            <p class="project-meta mb-3">
+              Crafting responsive, accessible interfaces with clean layouts.
+            </p>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="skill-pill">HTML5</span>
+              <span class="skill-pill">CSS3</span>
+              <span class="skill-pill">Bootstrap</span>
+              <span class="skill-pill">Responsive Design</span>
+              <span class="skill-pill">UI/UX Basics</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="glass-card h-100">
+            <h3 class="h6 mb-2">Backend</h3>
+            <p class="project-meta mb-3">
+              Building APIs and server‑side logic using Python.
+            </p>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="skill-pill">Python</span>
+              <span class="skill-pill">RESTful APIs</span>
+              <span class="skill-pill">Data Processing</span>
+              <span class="skill-pill">Authentication (basic)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="glass-card h-100">
+            <h3 class="h6 mb-2">Database</h3>
+            <p class="project-meta mb-3">
+              Managing data with relational models and clean queries.
+            </p>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="skill-pill">SQL</span>
+              <span class="skill-pill">Database Querying</span>
+              <span class="skill-pill">Data Manipulation</span>
+              <span class="skill-pill">Relational DB Design</span>
+              <span class="skill-pill">JDBC/ODBC Concepts</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="glass-card h-100">
+            <h3 class="h6 mb-2">Core Strengths</h3>
+            <p class="project-meta mb-3">
+              Skills that support effective teamwork and delivery.
+            </p>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="skill-pill">Problem Solving</span>
+              <span class="skill-pill">Attention to Detail</span>
+              <span class="skill-pill">Communication</span>
+              <span class="skill-pill">Adaptability</span>
+              <span class="skill-pill">Event Management</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+      <div class="row mb-4">
+        <div class="col-md-8">
+          <h2 class="section-title mb-2">Projects</h2>
+          <p class="section-subtitle">
+            Selected work showcasing responsive design, clean code and real‑world user flows.
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Portfolio Website -->
+        <div class="col-md-6 col-lg-4">
+          <article class="project-card">
+            <h3 class="project-title mb-1">Personal Portfolio Website</h3>
+            <p class="project-meta mb-2">
+              Role: Solo Developer · Stack: HTML, CSS, Bootstrap
+            </p>
+            <p class="mb-3">
+              A responsive portfolio site designed to highlight skills, projects and
+              certifications with a clean layout and smooth navigation across devices.
+            </p>
+            <ul class="mb-3" style="font-size: 0.9rem;">
+              <li>Mobile‑first layout with cross‑browser compatibility.</li>
+              <li>Clear sections for projects, education and contact details.</li>
+              <li>Focus on readability, accessibility and fast load times.</li>
+            </ul>
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <span class="skill-pill">HTML</span>
+              <span class="skill-pill">CSS</span>
+              <span class="skill-pill">Bootstrap</span>
+              <span class="skill-pill">Responsive UI</span>
+            </div>
+            <div class="project-links mt-auto d-flex gap-3">
+              <!-- Replace # with your live & GitHub links -->
+              <a href="#" class="contact-link">Live Demo →</a>
+              <a href="#" class="contact-link">Source Code →</a>
+            </div>
+          </article>
+        </div>
+
+        <!-- E-Commerce Landing Page -->
+        <div class="col-md-6 col-lg-4">
+          <article class="project-card">
+            <h3 class="project-title mb-1">E‑Commerce Landing Page</h3>
+            <p class="project-meta mb-2">
+              Role: Solo Developer · Stack: HTML, CSS, Bootstrap
+            </p>
+            <p class="mb-3">
+              A conversion‑focused landing page for an e‑commerce brand, featuring
+              hero banners, product highlights and persuasive calls to action.
+            </p>
+            <ul class="mb-3" style="font-size: 0.9rem;">
+              <li>Grid‑based product layout optimized for mobile and desktop.</li>
+              <li>Promotional sections for discounts and featured collections.</li>
+              <li>Intuitive navigation for frictionless user journeys.</li>
+            </ul>
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <span class="skill-pill">Landing Pages</span>
+              <span class="skill-pill">Bootstrap Grid</span>
+              <span class="skill-pill">Responsive Design</span>
+              <span class="skill-pill">UI/UX</span>
+            </div>
+            <div class="project-links mt-auto d-flex gap-3">
+              <a href="#" class="contact-link">Live Demo →</a>
+              <a href="#" class="contact-link">Source Code →</a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Food Ordering Website -->
+        <div class="col-md-6 col-lg-4">
+          <article class="project-card">
+            <h3 class="project-title mb-1">Food Ordering Restaurant Website</h3>
+            <p class="project-meta mb-2">
+              Role: Solo Developer · Stack: HTML, CSS, Bootstrap
+            </p>
+            <p class="mb-3">
+              A restaurant website with a complete menu system, reservation flow
+              and location details, designed to maximize customer engagement.
+            </p>
+            <ul class="mb-3" style="font-size: 0.9rem;">
+              <li>Structured menu sections with clear categorization.</li>
+              <li>Online reservation form with validation and confirmation UX.</li>
+              <li>Embedded map and contact details for quick access.</li>
+            </ul>
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <span class="skill-pill">Responsive Web Dev</span>
+              <span class="skill-pill">Form Design</span>
+              <span class="skill-pill">User Experience</span>
+            </div>
+            <div class="project-links mt-auto d-flex gap-3">
+              <a href="#" class="contact-link">Live Demo →</a>
+              <a href="#" class="contact-link">Source Code →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Future full-stack project slot -->
+      <div class="row mt-4">
+        <div class="col-lg-8">
+          <div class="glass-card">
+            <h3 class="h6 mb-2">Next steps</h3>
+            <p class="project-meta mb-2">
+              A dedicated slot for an upcoming full‑stack app built with Python,
+              REST APIs and SQL to further demonstrate backend skills.
+            </p>
+            <p class="mb-0" style="font-size: 0.9rem;">
+              For example: a task manager, notes app, or simple e‑commerce backend
+              deployed on Render/Vercel with a live API and documentation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <div class="container">
+      <div class="row mb-4">
+        <div class="col-md-8">
+          <h2 class="section-title mb-2">Education & Certifications</h2>
+          <p class="section-subtitle">
+            Academic journey and certifications that support full‑stack development.
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-4 position-relative">
+        <div class="timeline-line d-none d-md-block"></div>
+
+        <div class="col-md-6">
+          <div class="d-flex gap-3 mb-3">
+            <div class="timeline-dot d-none d-md-block mt-1"></div>
+            <div>
+              <h3 class="h6 mb-1">B.Tech in Electronics & Communication Engineering</h3>
+              <p class="project-meta mb-1">
+                Dr. Lankapalli Bullayya College, Andhra University · 2022 – Present
+              </p>
+              <p class="project-meta mb-0">
+                Building strong engineering fundamentals while applying them to
+                web development, problem solving and real‑world projects.
+              </p>
+            </div>
+          </div>
+
+          <div class="d-flex gap-3 mb-3">
+            <div class="timeline-dot d-none d-md-block mt-1"></div>
+            <div>
+              <h3 class="h6 mb-1">Intermediate (MPC)</h3>
+              <p class="project-meta mb-1">
+                Narayana Junior College · Completed 2020
+              </p>
+              <p class="project-meta mb-0">
+                Strengthened mathematical and analytical foundations essential
+                for programming and algorithms.
+              </p>
+            </div>
+          </div>
+
+          <div class="d-flex gap-3">
+            <div class="timeline-dot d-none d-md-block mt-1"></div>
+            <div>
+              <h3 class="h6 mb-1">Secondary School Certificate (SSC)</h3>
+              <p class="project-meta mb-1">
+                P.E.N School · Completed 2018
+              </p>
+              <p class="project-meta mb-0">
+                Completed foundational schooling with a consistent academic record.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="glass-card h-100">
+            <h3 class="h6 mb-3">Professional Certifications</h3>
+            <ul class="mb-3" style="font-size: 0.9rem;">
+              <li>
+                NxtWave Full‑Stack Development Certification (AICTE approved) –
+                Comprehensive training in Python‑based full‑stack web development
+                and database management.
+              </li>
+              <li>
+                NxtWave Specialized Certifications – SQL, Python Web Development,
+                Data Analysis, HTML & CSS (Responsive Web Design and UI/UX).
+              </li>
+              <li>
+                Infosys Springboard General Certification – Foundation‑level
+                technical and professional development.
+              </li>
+            </ul>
+            <p class="project-meta mb-0">
+              Regularly upskilling through hands‑on projects and industry‑aligned coursework.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="row mb-4">
+        <div class="col-md-8">
+          <h2 class="section-title mb-2">Contact</h2>
+          <p class="section-subtitle">
+            Open to internships, freelance opportunities and collaborative projects.
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="glass-card h-100">
+            <h3 class="h6 mb-3">Say hello</h3>
+            <p class="mb-3">
+              For opportunities, collaboration, or technical discussions, feel free
+              to reach out. Emails are usually the fastest way to get a response.
+            </p>
+            <ul class="list-unstyled mb-3" style="font-size: 0.95rem;">
+              <li class="mb-2">
+                <span style="color: #e5e7eb;">Email:</span>
+                <a href="mailto:p.satyasaiganesh@gmail.com" class="contact-link">
+                  p.satyasaiganesh@gmail.com
+                </a>
+              </li>
+              <li class="mb-2">
+                <span style="color: #e5e7eb;">Phone:</span>
+                <a href="tel:+919014842016" class="contact-link">
+                  +91 90148 42016
+                </a>
+              </li>
+              <li class="mb-2">
+                <span style="color: #e5e7eb;">Location:</span>
+                Visakhapatnam, Andhra Pradesh, India
+              </li>
+              <li class="mb-2">
+                <!-- Replace # with your real profiles -->
+                <span style="color: #e5e7eb;">GitHub:</span>
+                <a href="#" class="contact-link">github.com/your-username</a>
+              </li>
+              <li>
+                <span style="color: #e5e7eb;">LinkedIn:</span>
+                <a href="#" class="contact-link">linkedin.com/in/your-profile</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="glass-card h-100">
+            <h3 class="h6 mb-3">Quick message</h3>
+            <form>
+              <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="Your name" />
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="you@example.com" />
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea
+                  id="message"
+                  class="form-control"
+                  rows="4"
+                  placeholder="How can we work together?"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Send Message
+              </button>
+              <p class="project-meta mt-2 mb-0">
+                Form handling can be wired to a backend or service like Formspree / Netlify Forms.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <span>© <span id="year"></span> Polavarapu Satya Sai Ganesh. All rights reserved.</span>
+      <span style="font-size: 0.8rem;">
+        Built with passion for web development, space tech and continuous learning.
+      </span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Dynamic year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
